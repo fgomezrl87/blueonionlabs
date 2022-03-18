@@ -9,7 +9,7 @@ $ docker-compose up -d
 ```
 
 ## Import Postman Collections
-Open postman and then file-->import. Upload BlueOnionLabs.postman_collection.json file
+Open postman and then file-->import. Upload postman_collection.json file
 
 ## Install NPM dependencies
 Open a terminal and navigate to node-project folder. Execute next command within node-project folder:
@@ -27,4 +27,4 @@ $ node dist/app.js
 In postman, locate and open the "Import Data" POST request and execute it. You will get a message at the end of the process. JSON file is already added to project.
 
 ## Query postgres database to fetch one satelite information by id
-In postman, locate and open the "Get One Satelite by ID" GET request and ececute it. You will get a response with information for a specific satelite.
+In postman, locate and open the "Get One Satelite by ID" GET request and execute it. You will get a response with information for a specific satelite. Notice that this request is expecting not only the satelite id but the startDate and endDate you want to look at. This information has to be sent at the body in json format. There is an example in postman request.

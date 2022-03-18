@@ -22,11 +22,16 @@ const getData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.getData = getData;
 const getStarlink = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    // const starlink = await Starlink.findByPk( id );
-    const starlink = yield starlink_1.default.findAll({
+    const { Op } = require('sequelize');
+    const { startDate, endDate } = req.body;
+    const starlink = yield starlink_1.default.findOne({
         where: {
-            idsat: id
-        }
+            idsat: id,
+            creation_date: {
+                [Op.between]: [startDate, endDate]
+            }
+        },
+        order: [['creation_date', 'DESC']]
     });
     if (starlink) {
         res.json({ starlink });

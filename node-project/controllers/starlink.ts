@@ -13,13 +13,17 @@ export const getData = async ( req: Request, res: Response ) => {
 export const getStarlink = async ( req: Request, res: Response ) => {
 
     const { id } = req.params;
+    const { Op } = require('sequelize');
+    const { startDate, endDate } = req.body;
 
-    // const starlink = await Starlink.findByPk( id );
-
-    const starlink = await Starlink.findAll({
+    const starlink = await Starlink.findOne({
         where: {
-            idsat: id
-        }
+            idsat: id,
+            creation_date: {
+                [Op.between]: [startDate, endDate]
+            }
+        },
+        order: [ [ 'creation_date', 'DESC' ]]
     });
 
     if(starlink) {

@@ -16,9 +16,21 @@
 		},
 		{
 			"name": "Get One Satelite by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startDate\": \"2021-01-20\",\r\n    \"endDate\": \"2021-01-22\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": "localhost:8000/api/starlink/5eed7714096e590006985692"
 			},
 			"response": []
