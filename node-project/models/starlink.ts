@@ -20,7 +20,13 @@ const Starlink = db.define('starlink', {
         type: DataTypes.STRING
     }
 }, {
-    timestamps: false
+    timestamps: false,
+    indexes:[
+        {
+          unique: false,
+          fields:['idsat']
+        }
+    ]
 });
 
 export default Starlink; 

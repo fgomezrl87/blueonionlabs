@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "703ded98-c2a6-436e-8e77-255a8e097592",
+		"name": "BlueOnionLabs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Import Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:8000/api/starlink/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Satelite by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8000/api/starlink/5eed7714096e590006985692"
+			},
+			"response": []
+		}
+	]
+}

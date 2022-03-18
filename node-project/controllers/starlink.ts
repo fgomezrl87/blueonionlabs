@@ -14,7 +14,13 @@ export const getStarlink = async ( req: Request, res: Response ) => {
 
     const { id } = req.params;
 
-    const starlink = await Starlink.findByPk( id );
+    // const starlink = await Starlink.findByPk( id );
+
+    const starlink = await Starlink.findAll({
+        where: {
+            idsat: id
+        }
+    });
 
     if(starlink) {
         res.json( {starlink} );

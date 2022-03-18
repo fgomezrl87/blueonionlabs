@@ -22,7 +22,12 @@ const getData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.getData = getData;
 const getStarlink = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const starlink = yield starlink_1.default.findByPk(id);
+    // const starlink = await Starlink.findByPk( id );
+    const starlink = yield starlink_1.default.findAll({
+        where: {
+            idsat: id
+        }
+    });
     if (starlink) {
         res.json({ starlink });
     }

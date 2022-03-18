@@ -24,7 +24,13 @@ const Starlink = connection_1.default.define('starlink', {
         type: sequelize_1.DataTypes.STRING
     }
 }, {
-    timestamps: false
+    timestamps: false,
+    indexes: [
+        {
+            unique: false,
+            fields: ['idsat']
+        }
+    ]
 });
 exports.default = Starlink;
 //# sourceMappingURL=starlink.js.map
