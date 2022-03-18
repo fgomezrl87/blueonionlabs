@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import Starlink from '../models/starlink';
 import fs from 'fs';
+import sequelize from "sequelize";
 
 export const getData = async ( req: Request, res: Response ) => {
 
@@ -33,6 +34,46 @@ export const getStarlink = async ( req: Request, res: Response ) => {
             msg: `Satelite with id ${ id } does not exist`
         })
     }
+
+}
+
+export const getClosest = async ( req: Request, res: Response ) => {
+
+    const { Op } = require('sequelize');
+    const { lat, lon, startDate, endDate } = req.body;
+    
+    try {
+        const starlink = await Starlink.findOne({
+            attributes: {
+                include: [
+                    [
+                    sequelize.literal(`6371 * acos(cos(radians(${lat})) * cos(radians(latitude)) * cos(radians(${lon}) - radians(longitude)) + sin(radians(${lat})) * sin(radians(latitude)))`),
+                    'distance'
+                    ]
+                ]
+            },
+            where: {
+                creation_date: {
+                    [Op.between]: [startDate, endDate]
+                }
+            },
+            order: sequelize.literal('distance ASC')
+        });
+        if(starlink) {
+            res.json( {starlink} );
+        } else {
+            res.status(404).json({
+                msg: `No Satelites on those dates`
+            });
+        }
+    } catch (error) {
+        console.log('The error is: ' + error);
+        res.status(404).json({
+            msg: `Error: contact support`
+        });
+    }
+
+    
 
 }
 

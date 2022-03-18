@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "703ded98-c2a6-436e-8e77-255a8e097592",
 		"name": "BlueOnionLabs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -10,7 +10,18 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": "localhost:8000/api/starlink/"
+				"url": {
+					"raw": "localhost:8000/api/starlink/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"starlink",
+						""
+					]
+				}
 			},
 			"response": []
 		},
@@ -31,7 +42,46 @@
 						}
 					}
 				},
-				"url": "localhost:8000/api/starlink/5eed7714096e590006985692"
+				"url": {
+					"raw": "localhost:8000/api/starlink/5eed7714096e590006985692",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"starlink",
+						"5eed7714096e590006985692"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Closest Satelite",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lat\": \"4.65758\",\r\n    \"lon\": \"-74.112239\",\r\n    \"startDate\": \"2021-01-20\",\r\n    \"endDate\": \"2021-01-22\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/starlink",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"starlink"
+					]
+				}
 			},
 			"response": []
 		}

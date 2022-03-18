@@ -28,3 +28,6 @@ In postman, locate and open the "Import Data" POST request and execute it. You w
 
 ## Query postgres database to fetch one satelite information by id
 In postman, locate and open the "Get One Satelite by ID" GET request and execute it. You will get a response with information for a specific satelite. Notice that this request is expecting not only the satelite id but the startDate and endDate you want to look at. This information has to be sent at the body in json format. There is an example in postman request.
+
+## Query postres database to find closest satelite to your location
+In postman, locate and open the "Get Closest Satelite" PUT request and execute it. You will get a response with information of the closest satelite. Notice that this request is expecting startDate, EndDate and your location (lat, lon). This information has to be sent at the body in json format. There is an example in postman request.

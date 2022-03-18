@@ -6,5 +6,6 @@ const router = (0, express_1.Router)();
 router.get('/', starlink_1.getData);
 router.get('/:id', starlink_1.getStarlink);
 router.post('/', starlink_1.postData);
+router.put('/', starlink_1.getClosest);
 exports.default = router;
 //# sourceMappingURL=starlink.js.map
